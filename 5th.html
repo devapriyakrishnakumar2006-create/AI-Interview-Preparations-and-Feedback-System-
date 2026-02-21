@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Interview System</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- LOGIN DASHBOARD -->
+<div class="container" id="loginBox">
+  <h2>AI Interview Preparation System</h2>
+  <input id="name" type="text" placeholder="Enter Name"><br><br>
+  <input id="regno" type="text" placeholder="Register Number"><br><br>
+
+  <label>Select Difficulty:</label><br>
+  <select id="difficulty">
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+  </select><br><br>
+
+  <button onclick="login()">Start Interview</button>
+</div>
+
+<!-- EXAM SECTION -->
+<div class="container hidden" id="examBox">
+  <h2 id="heading">AI Interview System</h2>
+  <h3 id="welcome"></h3>
+
+  <div class="timerProgress">
+    <p>Time Left: <span id="timer">30</span>s</p>
+    <progress id="progressBar" value="0" max="100"></progress>
+  </div>
+
+  <h3 id="question"></h3>
+  <textarea id="answer" placeholder="Type your answer here..."></textarea><br>
+  <button onclick="submitAnswer()">Submit</button>
+  <p id="feedback"></p>
+</div>
+
+<!-- REPORT & LEADERBOARD -->
+<div class="container hidden" id="reportBox">
+  <h2>Your Performance Report</h2>
+  <canvas id="chart"></canvas><br>
+  <button onclick="downloadPDF()">Download PDF</button>
+  <button onclick="restart()">Restart</button>
+  <h3>Leaderboard</h3>
+  <table id="leaderboard">
+    <tr><th>Rank</th><th>Name</th><th>Score</th></tr>
+  </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
